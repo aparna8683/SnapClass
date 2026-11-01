@@ -64,6 +64,13 @@ def _teacher_styles():
         div.stButton > button[kind="primary"] {
             background:#5865f2;color:white;
         }
+        div.stButton > button[kind="secondary"] {
+            background:#ed3699;color:white;
+        }
+        .sc-footer {
+            color:#111;text-align:center;font-size:.75rem;
+            font-weight:700;margin-top:2.6rem;padding-bottom:.4rem;
+        }
         .teacher-divider {
             border:0;border-top:1px solid #cfd0ed;margin:1.6rem 0 1.15rem;
         }
@@ -111,7 +118,7 @@ def teacher_screen():
         st.markdown(
             """
             <div class="teacher-brand">
-                <div class="teacher-brand-mark">♟</div>
+                <div class="teacher-brand-mark">🎓</div>
                 <div class="teacher-brand-name">SNAP<br>CLASS</div>
             </div>
             """,
