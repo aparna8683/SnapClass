@@ -2,123 +2,121 @@ import streamlit as st
 
 
 def style_background_home():
-    """Apply the shared SnapClass visual system."""
+    """Styles for the minimal SnapClass home screen."""
     st.markdown(
         """
         <style>
-        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
-
-        :root {
-            --sc-ink: #17233d;
-            --sc-muted: #64748b;
-            --sc-primary: #5b5ce2;
-            --sc-primary-dark: #4546c8;
-            --sc-lilac: #eeedff;
-            --sc-line: #e8eaf3;
-            --sc-surface: #ffffff;
-        }
-
-        html, body, [class*="css"] {
-            font-family: 'DM Sans', sans-serif;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap');
 
         .stApp {
-            background:
-                radial-gradient(circle at 8% 8%, rgba(188, 185, 255, .34), transparent 28rem),
-                radial-gradient(circle at 92% 22%, rgba(216, 230, 255, .55), transparent 25rem),
-                #f7f8fc;
-            color: var(--sc-ink);
+            background: #5865f2;
+            font-family: 'Outfit', sans-serif;
         }
 
         #MainMenu, footer, header { visibility: hidden; }
+
         .block-container {
-            max-width: 1120px;
-            padding-top: 2rem !important;
-            padding-bottom: 3rem !important;
+            max-width: 900px;
+            min-height: 100vh;
+            padding: 2.2rem 1.5rem 1.2rem !important;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
-        h1, h2, h3 {
-            font-family: 'Manrope', sans-serif !important;
-            color: var(--sc-ink);
-            letter-spacing: -0.04em;
+        .sc-home-logo {
+            text-align: center;
+            margin: 0 auto 1.6rem;
         }
-        h1 { font-size: clamp(2.35rem, 5vw, 3.7rem) !important; line-height: 1.08 !important; }
-        h2 { font-size: 1.8rem !important; }
-        h3 { font-size: 1.25rem !important; letter-spacing: -0.02em; }
-        p, label, li { color: var(--sc-muted); }
 
-        [data-testid="stVerticalBlockBorderWrapper"] {
-            background: var(--sc-surface);
-            border: 1px solid var(--sc-line);
-            border-radius: 22px;
-            box-shadow: 0 12px 34px rgba(32, 42, 78, .055);
+        .sc-logo-mark {
+            width: 58px;
+            height: 58px;
+            margin: 0 auto .8rem;
+            border-radius: 15px;
+            background: #ffeb00;
+            border: 2px solid #30336f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 3px 0 rgba(25, 28, 85, .15);
+        }
+
+        .sc-wordmark {
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.55rem;
+            line-height: .82;
+            font-weight: 900;
+            letter-spacing: -2px;
+            text-align: center;
+            text-shadow: 0 2px 1px rgba(30, 35, 120, .08);
+        }
+
+        .sc-portal-card {
+            min-height: 186px;
+            background: #e7e6ff;
+            border-radius: 42px;
+            padding: 1.5rem 1.35rem 1.1rem;
+            text-align: left;
+            color: #17172b;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .sc-card-title {
+            color: #17172b;
+            font-size: 1.25rem;
+            font-weight: 900;
+            line-height: .95;
+            letter-spacing: -.7px;
+            margin-bottom: .35rem;
+        }
+
+        .sc-card-art {
+            height: 66px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3.5rem;
+            line-height: 1;
+            margin: .1rem 0 .35rem;
         }
 
         div.stButton > button {
-            border-radius: 12px;
-            min-height: 2.8rem;
-            padding: .55rem 1.15rem;
-            font-weight: 700;
-            border: 1px solid #dedff5;
-            transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+            background: #5865f2 !important;
+            color: #fff !important;
+            border: 0 !important;
+            border-radius: 999px !important;
+            min-height: 2.2rem !important;
+            padding: .35rem 1.1rem !important;
+            font-family: 'Outfit', sans-serif !important;
+            font-weight: 600 !important;
+            font-size: .78rem !important;
+            box-shadow: none !important;
         }
-        div.stButton > button[kind="primary"] {
-            color: white;
-            background: var(--sc-primary);
-            border-color: var(--sc-primary);
-        }
-        div.stButton > button[kind="primary"]:hover {
-            background: var(--sc-primary-dark);
-            border-color: var(--sc-primary-dark);
-            box-shadow: 0 8px 18px rgba(91, 92, 226, .2);
+
+        div.stButton > button:hover {
+            background: #4652df !important;
             transform: translateY(-1px);
         }
-        div.stButton > button:hover { transform: translateY(-1px); }
 
-        [data-testid="stMetric"] {
-            background: #fff;
-            border: 1px solid var(--sc-line);
-            padding: 1rem 1.1rem;
-            border-radius: 16px;
-        }
-        [data-testid="stMetricValue"] {
-            color: var(--sc-ink);
-            font-family: 'Manrope', sans-serif;
-            font-weight: 800;
-        }
-        .sc-eyebrow {
-            color: var(--sc-primary);
-            font-size: .76rem;
-            text-transform: uppercase;
-            letter-spacing: .14em;
-            font-weight: 800;
-            margin-bottom: .65rem;
-        }
-        .sc-muted { color: var(--sc-muted); }
-        .sc-pill {
-            display: inline-block;
-            background: var(--sc-lilac);
-            color: var(--sc-primary-dark);
-            border-radius: 999px;
-            padding: .38rem .8rem;
-            font-size: .78rem;
-            font-weight: 700;
-        }
-        .sc-feature {
-            background: white;
-            border: 1px solid var(--sc-line);
-            border-radius: 18px;
-            padding: 1.15rem;
-            min-height: 135px;
-        }
-        .sc-feature-icon { font-size: 1.5rem; margin-bottom: .55rem; }
-        .sc-feature-title { color: var(--sc-ink); font-weight: 800; margin-bottom: .25rem; }
-        .sc-feature-copy { color: var(--sc-muted); font-size: .9rem; line-height: 1.5; }
         .sc-footer {
+            color: #fff;
             text-align: center;
-            color: #8b94a9;
-            font-size: .82rem;
-            padding-top: 2rem;
+            font-family: 'Outfit', sans-serif;
+            font-size: .72rem;
+            font-weight: 600;
+            margin-top: 1.8rem;
+            opacity: .96;
+        }
+
+        @media (max-width: 640px) {
+            .block-container { padding: 1.5rem 1rem !important; }
+            .sc-wordmark { font-size: 2.2rem; }
+            .sc-portal-card { min-height: 175px; border-radius: 34px; }
         }
         </style>
         """,
@@ -127,10 +125,9 @@ def style_background_home():
 
 
 def style_background_dashboard():
-    """Keep dashboard pages visually consistent with the landing page."""
-    style_background_home()
+    """Dashboard screens are intentionally blank."""
+    pass
 
 
 def style_base_layout():
-    """Backward-compatible alias used by existing screens."""
     style_background_home()
