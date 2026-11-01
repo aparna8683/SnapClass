@@ -12,31 +12,29 @@ def home_screen():
     student_col, teacher_col = st.columns(2, gap="medium")
 
     with student_col:
-        st.markdown(
-            """
-            <div class="sc-portal-card">
+        with st.container(border=True):
+            st.markdown(
+                """
                 <div class="sc-card-title">I'm<br>Student</div>
                 <div class="sc-card-art">🧑‍🎓</div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-        if st.button("Student Portal  ↗", key="student_portal", use_container_width=True):
-            st.session_state["login_type"] = "student"
-            st.rerun()
+                """,
+                unsafe_allow_html=True,
+            )
+            if st.button("Student Portal  ↗", key="student_portal", use_container_width=True):
+                st.session_state["login_type"] = "student"
+                st.rerun()
 
     with teacher_col:
-        st.markdown(
-            """
-            <div class="sc-portal-card">
+        with st.container(border=True):
+            st.markdown(
+                """
                 <div class="sc-card-title">I'm<br>Teacher</div>
                 <div class="sc-card-art">👩‍🏫</div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-        if st.button("Teacher Portal  ↗", key="teacher_portal", use_container_width=True):
-            st.session_state["login_type"] = "teacher"
-            st.rerun()
+                """,
+                unsafe_allow_html=True,
+            )
+            if st.button("Teacher Portal  ↗", key="teacher_portal", use_container_width=True):
+                st.session_state["login_type"] = "teacher"
+                st.rerun()
 
     footer_home()
