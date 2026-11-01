@@ -54,6 +54,15 @@ def style_background_home():
             text-shadow: 0 2px 1px rgba(30, 35, 120, .08);
         }
 
+        [data-testid="stVerticalBlockBorderWrapper"] {
+            background: #e7e6ff;
+            border: 0 !important;
+            border-radius: 42px !important;
+            padding: 1.25rem 1.25rem .8rem;
+            min-height: 190px;
+            box-shadow: none !important;
+        }
+
         .sc-portal-card {
             min-height: 186px;
             background: #e7e6ff;
