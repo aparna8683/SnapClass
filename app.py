@@ -5,24 +5,24 @@ from src.screens.student_screen import student_screen
 from src.screens.teacher_screen import teacher_screen
 
 
-
-
-
 def main():
-    if 'login_type' not in st.session_state:
-        st.session_state["login_type"]=None
-    
-    match st.session_state["login_type"]:
-        case 'teacher':
-            teacher_screen()
+    st.set_page_config(
+        page_title="SnapClass | Smart Classroom",
+        page_icon="📚",
+        layout="wide",
+        initial_sidebar_state="collapsed",
+    )
 
-        case "student":
-            student_screen()
-        
-        case None:
-            home_screen()
-        
-    
-    
+    login_type = st.session_state.get("login_type")
 
-main() 
+    if login_type == "teacher":
+        teacher_screen()
+    elif login_type == "student":
+        student_screen()
+    else:
+        st.session_state["login_type"] = None
+        home_screen()
+
+
+if __name__ == "__main__":
+    main()
